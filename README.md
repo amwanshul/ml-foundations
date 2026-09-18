@@ -1,5 +1,14 @@
 # ML Foundations
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python 3.10+">
+  <img src="https://img.shields.io/badge/NumPy-Vectorized-013243?style=flat-square&logo=numpy&logoColor=white" alt="NumPy">
+  <img src="https://img.shields.io/badge/ML-From_Scratch-success?style=flat-square" alt="ML From Scratch">
+  <img src="https://img.shields.io/badge/Tests-Passing-brightgreen?style=flat-square" alt="Tests">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License">
+</p>
+
+
 A small, transparent machine-learning lab focused on understanding the mechanics behind common models instead of hiding everything behind a library call.
 
 ## What is here
@@ -34,6 +43,22 @@ ml-foundations/
 ├── requirements.txt
 └── README.md
 ```
+
+## Mathematical Formulations
+
+### 1. Linear Regression (Mean Squared Error)
+- **Hypothesis**: $\hat{y} = Xw + b$
+- **Loss Function**:
+  $$J(w, b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2$$
+- **Gradient Updates**:
+  $$w := w - \alpha \frac{1}{m} X^T (\hat{y} - y), \quad b := b - \alpha \frac{1}{m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})$$
+
+### 2. Logistic Regression (Binary Cross-Entropy)
+- **Hypothesis**: $\hat{y} = \sigma(z) = \frac{1}{1 + e^{-(Xw + b)}}$
+- **Loss Function**:
+  $$J(w, b) = -\frac{1}{m} \sum_{i=1}^{m} \left[ y^{(i)} \ln(\hat{y}^{(i)}) + (1 - y^{(i)}) \ln(1 - \hat{y}^{(i)}) \right]$$
+
+---
 
 ## Run
 
