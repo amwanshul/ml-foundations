@@ -20,8 +20,8 @@ class LogisticRegression:
         X = np.asarray(X, dtype=float)
         y = np.asarray(y, dtype=float).reshape(-1)
 
-        if X.ndim != 2 or len(X) != len(y):
-            raise ValueError("X must be 2D and match y in length")
+        if X.ndim != 2 or len(X) != len(y) or len(X) == 0:
+            raise ValueError("X must be 2D, non-empty, and match y in length")
 
         n_samples, n_features = X.shape
         self.weights_ = np.zeros(n_features)

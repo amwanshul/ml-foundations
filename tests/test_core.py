@@ -26,6 +26,14 @@ class TestCore(unittest.TestCase):
         model = LogisticRegression(learning_rate=0.2, epochs=1500).fit(X, y)
         self.assertEqual(model.predict([[-3], [3]]).tolist(), [0, 1])
 
+    def test_linear_regression_rejects_empty_training_data(self):
+        with self.assertRaises(ValueError):
+            LinearRegression().fit(np.empty((0, 1)), np.empty((0,)))
+
+    def test_logistic_regression_rejects_empty_training_data(self):
+        with self.assertRaises(ValueError):
+            LogisticRegression().fit(np.empty((0, 1)), np.empty((0,)))
+
     def test_metrics(self):
         y_true = np.array([0, 0, 1, 1])
         y_pred = np.array([0, 1, 1, 1])
