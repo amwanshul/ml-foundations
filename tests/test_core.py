@@ -14,6 +14,12 @@ class TestCore(unittest.TestCase):
         np.testing.assert_allclose(scaled.mean(axis=0), [0, 0], atol=1e-10)
         np.testing.assert_allclose(scaled.std(axis=0), [1, 1], atol=1e-10)
 
+    def test_scaler_handles_constant_feature(self):
+        X = np.array([[1, 5], [1, 7], [1, 9]], dtype=float)
+        scaled = StandardScaler().fit_transform(X)
+        np.testing.assert_allclose(scaled[:, 0], [0, 0, 0])
+        np.testing.assert_allclose(scaled[:, 1], [-1.22474487, 0, 1.22474487], atol=1e-7)
+
     def test_linear_regression(self):
         X = np.arange(1, 6, dtype=float).reshape(-1, 1)
         y = 2 * X[:, 0] + 1
